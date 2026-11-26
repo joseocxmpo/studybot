@@ -41,8 +41,6 @@ Las entradas están en el mismo orden que la lista de variables de arriba.
 
 Probé las mismas 4 entradas en la función `predecir()` y en la aplicación web, y en ambas obtuve el mismo resultado. También comprobé que la app rechaza valores como `abc` o `5` y muestra un mensaje de error.
 
-La app usa el modelo guardado: en `app.py` no escribí reglas a mano ni llamo a `fit()`.
-
 ### Capturas
 
 **Prueba 1 – Laboratorio ideal (APTO)**
@@ -78,3 +76,27 @@ Porque el modelo aprendió con los datos en un formato específico: ciertas colu
 
 **4. ¿Qué diferencia existe entre ejecutar Flask localmente y desplegar una aplicación para uso real?**
 Cuando ejecuto Flask localmente uso su servidor de desarrollo, que corre en mi computadora, solo lo uso yo y no tiene medidas de seguridad. Para uso real la app se tiene que desplegar en un servidor o en la nube, con un servidor como gunicorn, HTTPS, el modo `debug` apagado, versiones fijas de las librerías y una dirección pública. También hay que pensar en que muchas personas la usen al mismo tiempo, en manejar errores, en monitorearla y en la seguridad.
+
+## Despliegue en línea
+
+Desplegué la aplicación en Render (plan gratuito) y se puede usar aquí: **https://studybot-lf2p.onrender.com/**
+
+Para el despliegue usé `gunicorn app:app` como comando de inicio, el mismo `requirements.txt` del proyecto y Python 3.11.9. Como es el plan gratuito, la app se "duerme" si nadie la usa por un rato, y la primera visita puede tardar alrededor de un minuto en cargar.
+
+### Capturas de la app desplegada
+
+**Página de inicio**
+
+![Render inicio](evidencias/render_inicio.png)
+
+**Prueba 1 – Laboratorio ideal (APTO)**
+
+![Render prueba 1](evidencias/render_prueba1_laboratorio.png)
+
+**Prueba 4 – Caso frontera (NO APTO, 50%)**
+
+![Render prueba 4](evidencias/render_prueba4_frontera.png)
+
+## Declaración de uso de IA
+
+Durante esta práctica utilicé Claude (de Anthropic) como apoyo. Lo usé solamente para guiarme en los pasos de la práctica, para encontrar y corregir errores en mi proyecto y para mejorar la redacción de este README.
